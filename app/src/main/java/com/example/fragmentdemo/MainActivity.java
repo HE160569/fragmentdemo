@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             frag_tran.commit();
         }
         else if(v.getId()== R.id.btn_replace){
-            frag_tran = fragManager.beginTransaction();
-            frag_tran.replace(R.id.fr_container,fragB,"");
-            frag_tran.addToBackStack("fragA");
-            frag_tran.commit();
+//            goToFragB();
         }
         else if(v.getId()== R.id.btn_remove){
             frag_tran = fragManager.beginTransaction();
@@ -44,5 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             frag_tran.commit();
         }
 
+    }
+
+    public void goToFragB(String s, int size){
+        fragB = FragmentB.newInstance(s, String.valueOf(size));
+        frag_tran = fragManager.beginTransaction();
+        frag_tran.replace(R.id.fr_container,fragB,"");
+//        frag_tran.addToBackStack("fragA");
+        frag_tran.commit();
     }
 }

@@ -2,11 +2,16 @@ package com.example.fragmentdemo;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SeekBar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +65,20 @@ public class FragmentA extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_a, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button btn = view.findViewById(R.id.btn_next);
+        SeekBar sb = view.findViewById(R.id.seekBar);
+        EditText edt = view.findViewById(R.id.editTextText);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).goToFragB(edt.getText().toString(),sb.getProgress());
+
+            }
+        });
     }
 }

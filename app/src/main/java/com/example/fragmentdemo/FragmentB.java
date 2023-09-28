@@ -1,9 +1,7 @@
 package com.example.fragmentdemo;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentB#newInstance} factory method to
  * create an instance of this fragment.
+ *
  */
 public class FragmentB extends Fragment {
 
@@ -23,10 +22,6 @@ public class FragmentB extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public FragmentB() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -46,12 +41,18 @@ public class FragmentB extends Fragment {
         return fragment;
     }
 
+    public FragmentB() {
+        // Required empty public constructor
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(ARG_PARAM1);// doi ten thanh text_from_A
+            mParam2 = getArguments().getString(ARG_PARAM2);//doi ten thanh size_of_text
+        //tim cach hien thi text_from_A len tv_result voi size la size_of_text
+            //goi y: vao ham onViewCreated
         }
     }
 
